@@ -1,20 +1,21 @@
 {
   "name": "stylwriter",
   "description": "Convert and write styl files into css files",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "repository": {
-    "url": "git://github.com/substack/stylwriter.git"
+    "url": "git://github.com/rt2zz/stylwriter.git"
   },
   "main": "index.js",
-  "scripts": {
-    "test": "tap test/*.js"
-  },
   "dependencies": {
-    "styl": ">0.0.1"
+    "styl": ">0.0.1",
+    "through": ">0.0.1"
   },
   "devDependencies": {
     "tap": "~0.2.5"
   },
   "author": "",
-  "license": "BSD"
+  "license": "BSD",
+  "_id": "stylwriter@0.0.1",
+  "readme": "ERROR: No README.md file found!",
+  "_from": "stylwriter@"
 }

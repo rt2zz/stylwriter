@@ -2,12 +2,13 @@ var styl = require('styl')
 var fs = require('fs')
 var crypto = require('crypto')
 var path = require('path')
+var through = require('through')
 
 var filecache = {}
 
-module.exports = function(readPath, writePath){
+module.exports = function(readPath, outputStream){
   var absReadPath = path.resolve(readPath)
-  // console.log(absReadPath.split('.')[])
+  var writePath = absReadPath.split('.')[0] + '.css'
   fs.readFile(absReadPath, {encoding: 'utf8'}, function (err, data) {
 
     if (err) {
@@ -19,18 +20,23 @@ module.exports = function(readPath, writePath){
     var hashVal = hash.digest('hex')
 
     if(typeof filecache[absReadPath] == undefined || filecache[absReadPath] != hashVal){
-
-      var css = styl(data, { whitespace: true }).toString();
-      if(typeof writePath == 'undefined') writePath = absReadPath.split('.')[0] + '.css'
-      else writePath = path.resolve(writePath)
+      css = styl(data, { whitespace: true }).toString();
 
       fs.writeFile(writePath, css, function(err){
         if(err) throw err;
         filecache[absReadPath] = hashVal
       })
+
+      if(typeof outputStream != undefined){
+        var stream = through().pause().queue(css).end()
+        stream.pipe(outputStream)
+        stream.resume()
+      }
     }
     else{
-      console.log('cached!!')
+      if(typeof outputStream != undefined){
+        outputStream.pipe(fs.createWriteStream(writePath))
+      }
     }
   });
 }
