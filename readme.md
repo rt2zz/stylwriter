@@ -8,6 +8,7 @@ var stylwriter = require('stylwriter')
 function(req, res){
   stylewriter('styles.styl', res)
 }
+```
 
 ### @TODO
 Tests
