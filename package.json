@@ -1,7 +1,7 @@
 {
   "name": "stylwriter",
   "description": "Convert and write styl files into css files",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "repository": {
     "url": "git://github.com/rt2zz/stylwriter.git"
   },

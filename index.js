@@ -35,7 +35,7 @@ module.exports = function(readPath, outputStream){
     }
     else{
       if(typeof outputStream != undefined){
-        outputStream.pipe(fs.createWriteStream(writePath))
+        fs.createReadStream(writePath).pipe(outputStream)
       }
     }
   });
