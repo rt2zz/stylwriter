@@ -13,9 +13,17 @@
   "devDependencies": {
     "tap": "~0.2.5"
   },
-  "author": "",
+  "author": "rt2zz <zack@root-two.com>",
   "license": "BSD",
-  "_id": "stylwriter@0.0.1",
-  "readme": "ERROR: No README.md file found!",
-  "_from": "stylwriter@"
+  "_from": "stylwriter@",
+  "bugs": {
+    "url": "https://github.com/rt2zz/stylwriter/issues"
+  },
+  "homepage": "https://github.com/rt2zz/stylwriter",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "styl"
+  ]
 }
